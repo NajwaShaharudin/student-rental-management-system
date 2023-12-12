@@ -276,14 +276,10 @@
             <article>
                 <h4>Property Details</h4>
                 <div class="testbox">
-                    <form action="/">
-                      <div class="item">
-                        <p>House Image</p>
-                        <input type="file" id="myFile" name="filename">
-                      </div>
+                    <form action="landlordhouseform.php" method="post" enctype="multipart/form-data">
                       <div class="item">
                         <p>House Type</p>
-                          <select>
+                          <select id="type" name="type">
                             <option value="">Type</option>
                             <option value="1">Bungalow House</option>
                             <option value="2">Link Bungalow</option>
@@ -299,27 +295,27 @@
                       </div>
                       <div class="item">
                         <p>Monthly Rent</p>
-                        <input type="Text" name="rent" placeholder="RM 0.00">
+                        <input type="Text" id="rent" name="rent" placeholder="RM 0.00">
                       </div>
                       <div class="item">
                         <p>Address</p>
-                        <input type="text" name="name" placeholder="Street address" />
-                        <input type="text" name="name" placeholder="Street address line 2" />
-                        <input type="text" name="name" placeholder="City" />
-                        <input type="text" name="name" placeholder="Region" />
-                        <input type="text" name="name" placeholder="Postal / Zip code" />
+                        <textarea rows="5" id="address" name="address" placeholder="House Address"></textarea>
                       </div>
                       <div class="item">
                         <p>Info</p>
-                        <textarea rows="3" placeholder="Information about house"></textarea>
+                        <textarea rows="3" id="info" name="info" placeholder="Information About House"></textarea>
+                      </div>
+                      <div class="item">
+                        <p>House Image</p>
+                        <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" value="">
                       </div>
                       <div class="btn-block">
-                        <button type="submit" href="/">SUBMIT</button>
+                        <button type="submit" name="submit">SUBMIT</button>
                       </div>
-                </form>
-                </div>
+                    </form>
+                  </div>
               </article>
-        </div>
+          </div>
     </section>
 
     <!-- ***** Footer Start ***** -->
