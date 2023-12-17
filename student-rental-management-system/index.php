@@ -172,12 +172,15 @@
 
             <br>
 
-    <!-- ***** Footer Start ***** -->
-    <footer>
+   <!-- ***** Footer Start ***** -->
+   <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    
+                    <p>
+                        Copyright © student-utem
+                        
+                    </p>
                 </div>
             </div>
         </div>
