@@ -51,7 +51,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
                               
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="">Admin</a>
+                                    <a class="dropdown-item" href="admin_login.php">Admin</a>
                                     <a class="dropdown-item" href="login.php">Landlord</a>
                                     <a class="dropdown-item" href="">Student</a>
                                 </div>

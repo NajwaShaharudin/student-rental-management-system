@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Landlord Login </title>
+    <title>Admin Login</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -43,7 +43,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Landlord Login</h2>
+                        <h2>Admin Login</h2>
                     </div>
                 </div>
             </div>
@@ -55,42 +55,18 @@
     <section class="section" id="contact-us" style="margin-top: 0">
         <div class="container">
 
-        <?php
-        if (isset($_POST["login"])) {
-           $fullName = $_POST["fullname"];
-           $password = $_POST["password"];
-            require_once "database.php";
-            $sql = "SELECT * FROM landlord_register WHERE fullname = '$fullName'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION["user"] = "yes";
-                    header("Location: index.php");
-                    die();
-                }else{
-                    echo "<div class='alert alert-danger'>Password does not match</div>";
-                }
-            }else{
-                echo "<div class='alert alert-danger'>Fullname does not match</div>";
-            }
-        }
-        ?>
+       
            
                     <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
-                        <form id="contact" action="login.php" method="post">
+                        <form id="admin" action="admin.php" method="post">
                               <fieldset>
-                              <input type="fullname" placeholder="Enter Full Name:" name="fullname" class="form-control">
+                              <input type="username" placeholder="Enter Username:" name="username" class="form-control">
                               </fieldset>
                               <fieldset>
                               <input type="password" placeholder="Enter Password:" name="password" class="form-control">
                               </fieldset>
                               <fieldset>
                                 <button type="submit" value="Login" name="login" class="main-button">Login</button>
-                              </fieldset>
-                              <fieldset>
-                              <div><p>Not registered yet? <a href="registration.php">Register here</a></p></div>
                               </fieldset>
                         </form>
                     </div>
