@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Admin Login </title>
+    <title>Admin Registration Form</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -34,31 +34,6 @@
     </div>
     <!-- ***** Preloader End ***** -->
 
-     <!-- ***** Header Area Start ***** -->
-     <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">House<em> Rental</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.php">Home</a></li>
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-    
-
     <!-- ***** Call to Action Start ***** -->
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
@@ -67,7 +42,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Admin Login</h2>
+                        <h2>Admin Registration</h2>
                     </div>
                 </div>
             </div>
@@ -75,49 +50,71 @@
     </section>
     <!-- ***** Call to Action End ***** -->
 
-    <!-- ***** Login Form Area Starts ***** -->
+    <!-- ***** Registration Form Area Starts ***** -->
     <section class="section" id="contact-us" style="margin-top: 0">
         <div class="container">
 
         <?php
-        if (isset($_POST["login"])) {
-           $username = $_POST["username"];
-           $password = $_POST["password"];
-            require_once "database.php";
-            $sql = "SELECT * FROM admin WHERE username = '$username'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION["user"] = "yes";
-                    header("Location: index.php");
-                    die();
-                }else{
-                    echo "<div class='alert alert-danger'>Password does not match</div>";
-                }
+       if (isset($_POST["submit"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $passwordRepeat = $_POST["repeat_password"];
+        
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $errors = array();
+        
+        if (empty($username) OR empty($password) OR empty($passwordRepeat)) {
+         array_push($errors,"All fields are required");
+        }
+        if (strlen($password)<8) {
+         array_push($errors,"Password must be at least 8 charactes long");
+        }
+        if ($password!==$passwordRepeat) {
+         array_push($errors,"Password does not match");
+        }
+        require_once"database.php";
+
+        if (count($errors)>0) {
+         foreach ($errors as  $error) {
+             echo "<div class='alert alert-danger'>$error</div>";
+         }
+        }else{
+           
+            $sql = "INSERT INTO admin (username, password) VALUES (?,?)";
+            $stmt = mysqli_stmt_init($conn);
+            $prepareStat = mysqli_stmt_prepare($stmt,$sql);
+            if ($prepareStat) {
+                mysqli_stmt_bind_param($stmt,"ss", $username, $passwordHash);
+                mysqli_stmt_execute($stmt);
+                echo "<div class='alert alert-success'>You are registered successfully.</div>";
             }else{
-                echo "<div class='alert alert-danger'>Fullname does not match</div>";
+                die("Something went wrong");
             }
         }
+    }
         ?>
-
-                    <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
-                        <form action="admin_login.php" method="post">
+           
+           <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
+                        <form action="admin_registration.php" method="post">
                               <fieldset>
-                              <input type="text" placeholder="Enter Username" name="username" class="form-control">
+                              <input type="text" class="form-control" name="username" placeholder="Username">
                               </fieldset>
                               <fieldset>
-                              <input type="password" placeholder="Enter Password" name="password" class="form-control">
+                              <input type="password" class="form-control" name="password" placeholder="Password:">
                               </fieldset>
                               <fieldset>
-                                <button type="submit" value="Login" name="login" class="main-button">Login</button>
+                              <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password:">
                               </fieldset>
+                              <fieldset>
+                                <button type="submit" value="Register" name="submit" class="btn btn-primary">Register</button>
+                              </fieldset>
+                              
                         </form>
                     </div>
         </div>
     </section>
-    <!-- ***** Login Form Area Ends ***** -->
+    <!-- ***** Registration Area Ends ***** -->
     
     <!-- ***** Footer Start ***** -->
     <footer>
@@ -126,14 +123,12 @@
                 <div class="col-lg-12">
                     <p>
                         Copyright © student-utem
-                       
+                        
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-
-    
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
