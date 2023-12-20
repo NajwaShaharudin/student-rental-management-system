@@ -18,8 +18,8 @@ if (mysqli_connect_errno()) {
     die("Connection error: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO house (House_ID, Img, Address, Info, Rent, Categories, LL_IC_Num)
-        VALUES ('', '', '$address', '$info', '$rent', '$type', '')";
+$sql = "INSERT INTO house (House_ID, Img, Address, Info, Rent, Categories)
+        VALUES ('', '', '$address', '$info', '$rent', '$type')";
 
 $stmt = mysqli_stmt_init($conn);
 
