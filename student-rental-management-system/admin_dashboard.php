@@ -94,11 +94,8 @@
                             </ul>
                         <div class="down-content">
 
-                            <h4>LIST STUDENT ACCOUNT</h4>
+                            <h4>LIST OF STUDENT</h4>
 
-                            <ul class="social-icons">
-                                <li><a href="property-details.html">+ View More</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
