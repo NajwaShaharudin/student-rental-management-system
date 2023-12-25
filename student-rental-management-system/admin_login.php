@@ -91,7 +91,7 @@
                 if (password_verify($password, $user["password"])) {
                     session_start();
                     $_SESSION["user"] = "yes";
-                    header("Location: index.php");
+                    header("Location: admin_dashboard.php");
                     die();
                 }else{
                     echo "<div class='alert alert-danger'>Password does not match</div>";
