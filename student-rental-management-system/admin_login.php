@@ -97,7 +97,7 @@
                     echo "<div class='alert alert-danger'>Password does not match</div>";
                 }
             }else{
-                echo "<div class='alert alert-danger'>Fullname does not match</div>";
+                echo "<div class='alert alert-danger'>Username does not match</div>";
             }
         }
         ?>
