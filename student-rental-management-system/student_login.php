@@ -105,10 +105,10 @@
                     <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
                         <form action="student_login.php" method="post">
                               <fieldset>
-                              <input type="text" placeholder="Enter Username" name="username" class="form-control">
+                              <input type="text" placeholder="Username *last IC number" name="username" class="form-control">
                               </fieldset>
                               <fieldset>
-                              <input type="password" placeholder="Enter Password" name="password" class="form-control">
+                              <input type="password" placeholder="Password *matric number" name="password" class="form-control">
                               </fieldset>
                               <fieldset>
                                 <button type="submit" value="Login" name="login_student" class="main-button">Login</button>

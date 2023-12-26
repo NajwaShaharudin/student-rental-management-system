@@ -38,13 +38,18 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
             $password_Repeat = $_POST["password_Repeat"];
+            $phone_num = $_POST["phone_num"];
             $email = $_POST["email"];
+            $address = $_POST["address"];
+            $matricNo = $_POST["matricNo"];
+            $ic_no = $_POST["ic_no"];
+            
            
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
             $errors = array();
 
-            if (empty($name) OR empty($username) OR empty($password) OR empty($password_Repeat) OR empty($email) ) {
+            if (empty($name) OR empty($username) OR empty($password) OR empty($password_Repeat) OR empty($phone_num) OR empty($email) OR empty($address) OR empty($email) OR empty($matricNo) OR empty($ic_no)) {
                 array_push($errors,"All fields are required");
                }
                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -64,11 +69,11 @@
                 }
                }else{
 
-                $sql = "INSERT INTO student (name, username, password, email) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO student (name, username, password, phone_num, email, address, matricNo, ic_no) VALUES (?,?,?,?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 $prepareStat = mysqli_stmt_prepare($stmt,$sql);
              if ($prepareStat) {
-                mysqli_stmt_bind_param($stmt,"ssss",$name, $username, $passwordHash, $email);
+                mysqli_stmt_bind_param($stmt,"ssssssss",$name, $username, $passwordHash, $phone_num, $email, $address, $matricNo, $ic_no);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>Student account registered successfully.</div>";
             }else{
@@ -90,16 +95,28 @@
                 <input type="text" class="form-control" name="name" placeholder="Name">
             </div>
             <div class = "form-element my-4">
-                <input type="text" class="form-control" name="username" placeholder="Username">
+                <input type="text" class="form-control" name="username" placeholder="Username *last IC number">
             </div>
             <div class = "form-element my-4">
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" placeholder="Password *matric number">
             </div>
             <div class = "form-element my-4">
             <input type="password" class="form-control" name="password_Repeat" placeholder="Repeat Password">
             </div>
             <div class = "form-element my-4">
+            <input type="text" class="form-control" name="phone_num" placeholder="Phone Number">
+            </div>
+            <div class = "form-element my-4">
                 <input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class = "form-element my-4">
+            <input type="text" class="form-control" name="address" placeholder="Address">
+            </div>
+            <div class = "form-element my-4">
+            <input type="text" class="form-control" name="matricNo" placeholder="Matric Number">
+            </div>
+            <div class = "form-element my-4">
+            <input type="text" class="form-control" name="ic_no" placeholder="IC Number">
             </div>
             <div class="form-element">
                 <input type="submit" class="btn btn-success" name="submit" value="Register Student">
