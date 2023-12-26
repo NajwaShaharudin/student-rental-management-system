@@ -88,7 +88,7 @@
                 <div class="col-lg-6">
                     <div class="trainer-item">
                     <ul class="social-icons">
-                                <li><a href="regs_student.php" >
+                                <li><a href="view_studentList.php" >
                                 <img src="assets/images/list-student.jpg" alt="list-student" width="250" height="450">
                                 </a></li>
                             </ul>
