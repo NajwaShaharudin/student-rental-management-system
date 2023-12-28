@@ -35,32 +35,61 @@
         </thead>
         <tbody>
         
+        
         <?php
         include('database.php');
-        $sqlSelect = "SELECT * FROM student";
+
+        //Pagination variables
+        $results_per_page = 3; //Number of results per page
+
+         //Determine which page number visitor is currently on
+        if (!isset($_GET['page'])) {
+            $page = 1; //if no specific page is requested, default to the first page
+        } else {
+            $page = $_GET['page'];
+        }
+
+        //calculate the starting index for the LIMIT clause
+        $start_index = ($page -1) * $results_per_page; 
+
+        //find out the number of results stored in database
+        $sqlSelect = "SELECT * FROM student LIMIT $start_index, $results_per_page";
         $result = mysqli_query($conn,$sqlSelect);
-        while($data = mysqli_fetch_array($result)){
-            ?>
-            <tr>
-                <td><?php echo $data['id']; ?></td>
-                <td><?php echo $data['name']; ?></td>
-                <td><?php echo $data['phone_num']; ?></td>
-                <td><?php echo $data['email']; ?></td>
-                <td><?php echo $data['address']; ?></td>
-                <td><?php echo $data['matricNo']; ?></td>
-                <td><?php echo $data['ic_no']; ?></td>
-                <td>
-                    <a href="edit_student.php?id=<?php echo $data['id']; ?>"> <span class="glyphicon glyphicon-edit"></span></a><br>
-                </td>
-                <td>
-                <a href="delete_student.php?id=<?php echo $data['id']; ?>"  ><span class="glyphicon glyphicon-trash"></span></a>
-                </td>
-            </tr>
-            <?php
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>{$row['id']}</td>";
+            echo "<td>{$row['name']}</td>";
+            echo "<td>{$row['phone_num']}</td>";
+            echo "<td>{$row['email']}</td>";
+            echo "<td>{$row['address']}</td>";
+            echo "<td>{$row['matricNo']}</td>";
+            echo "<td>{$row['ic_no']}</td>";
+            echo "</tr>";
         }
         ?>
-        </tbody>
-        </table>
+         </tbody>
+      </table>
+
+        <?php
+        //retrieve selected results from database and display them on page
+         $sqlCount = "SELECT COUNT(*) AS total FROM student";
+         $resultCount = mysqli_query($conn, $sqlCount);
+         $row = mysqli_fetch_assoc($resultCount);
+
+         //determine number of total pages available
+         $total_pages = ceil($row['total'] / $results_per_page);
+
+         echo '<div class="text-center">';
+         echo '<ul class="pagination">';
+
+         //display the link to the pages
+         for ($i = 1; $i <= $total_pages; $i++) {
+             echo '<li class="page-item"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+         }
+         echo '</ul>';
+         echo '</div>';
+        ?>
     </div>
 </body>
 </html>
