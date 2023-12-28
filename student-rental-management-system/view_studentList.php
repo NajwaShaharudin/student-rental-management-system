@@ -25,12 +25,12 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Matric Number</th>
-                <th>IC Number</th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Phone Number</th>
+                <th style="text-align:center">Email</th>
+                <th style="text-align:center">Address</th>
+                <th style="text-align:center">Matric Number</th>
+                <th style="text-align:center">IC Number</th>
             </tr>
         </thead>
         <tbody>
@@ -58,15 +58,18 @@
 
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['name']}</td>";
-            echo "<td>{$row['phone_num']}</td>";
-            echo "<td>{$row['email']}</td>";
-            echo "<td>{$row['address']}</td>";
-            echo "<td>{$row['matricNo']}</td>";
-            echo "<td>{$row['ic_no']}</td>";
+            echo "<td style='text-align: left;'>{$row['id']}</td>";
+            echo "<td style='text-align: left;'>{$row['name']}</td>";
+            echo "<td style='text-align: left;'>{$row['phone_num']}</td>";
+            echo "<td style='text-align: left;'>{$row['email']}</td>";
+            echo "<td style='text-align: left;'>{$row['address']}</td>";
+            echo "<td style='text-align: left;'>{$row['matricNo']}</td>";
+            echo "<td style='text-align: left;'>{$row['ic_no']}</td>";
+            echo "<td><a href='edit_student.php?id={$row['id']}'><span class='glyphicon glyphicon-edit'></span></a><br></td>";
+            echo "<td><a href='delete_student.php?id={$row['id']}'><span class='glyphicon glyphicon-trash'></span></a><br></td>";
             echo "</tr>";
         }
+        
         ?>
          </tbody>
       </table>
