@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landlord Registration</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -74,33 +72,47 @@
 
     if(isset($_POST['register'])){
 
+        $fullname = $_POST['fullname'];
         $username = $_POST['username'];
         $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
         $password = $_POST['password'];
+
 
         $stmt = $conn->prepare("SELECT * FROM landlord WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if (empty($username) OR empty($email) OR empty($password)) {
+        if (empty($fullname) OR empty($username) OR empty($email) OR empty($phone) OR empty($address) OR empty($password)) {
             array_push($errors,"All fields are required");
         } else {
-            $stmt = $conn->prepare("INSERT INTO landlord (username, email, password, status) VALUES (?, ?, ?, 'pending')");
-            $stmt->bind_param("sss", $username, $email, $password);
+            $stmt = $conn->prepare("INSERT INTO landlord (fullname, username, email, phone, address, password, status) VALUES (?, ?, ?, ?, ?, ?, 'pending')");
+            $stmt->bind_param("ssssss", $fullname, $username, $email, $phone, $address, $password);
             $stmt->execute();
-            echo "<div class='alert alert-success'>Your account is pending for approval. Please check back after 2 to 3 hours.</div>";
+            echo "<div class='alert alert-success'>Your account is pending for approval. Please check back after 1 or 2 days.</div>";
         }
     }
     ?>
-
                     <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
                         <form action="landlord_register.php" method="post">
+                              
+                              <fieldset>
+                              <input type="text" class="form-control" name="fullname" placeholder="Enter you Full Name">
+                              </fieldset>
                               <fieldset>
                               <input type="text" class="form-control" name="username" placeholder="Username">
                               </fieldset>
                               <fieldset>
                               <input type="email" class="form-control" name="email" placeholder="Email">
+                              </fieldset>
+                              <fieldset>
+                              <input type="text" class="form-control" name="phone" placeholder="Phone Number">
+                              </fieldset>
+                              <fieldset>
+                              <input type="text" class="form-control" name="address" placeholder="Address">
+                              </fieldset>
                               <fieldset>
                               <input type="password" class="form-control" name="password" placeholder="Password">
                               </fieldset>

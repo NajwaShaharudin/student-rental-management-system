@@ -32,10 +32,11 @@ include 'database.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Approval</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-    <title>Rental House Management System</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+
       
     <style>
         .center {
@@ -48,31 +49,34 @@ include 'database.php';
             margin-bottom: 30px;
         }
 
-        form input[type="submit"] {
-            margin-right: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #f8f9fa;
-            margin-top: 50px;
+        table th,
+        table td {
+            text-align: left;
         }
     </style>
 
 </head>
 <body>
-    <div class="center">
-        <h1>User Registration Approval</h1>
-        <table class="table table-striped" id="users">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>Email Address</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+    <div class="container">
+    <header class="d-flex justify-content-between my-4">
+            <div class="text-center"> <!-- Center align the content -->
+                <h3>Landlord Registration Approval</h3>
+            </div>
+            <div>
+                <a href="admin_dashboard.php" class="btn btn-primary">Back</a>
+            </div>
+            </header>
+        <table class="table table-bordered" id="users">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Email</th>
+                <th style="text-align:center">Phone Number</th>
+                <th style="text-align:center">Address</th>
+                
+            </tr>
+        </thead>
             <tbody>
                 <?php
                 $query = "SELECT * FROM landlord WHERE status = 'pending' ORDER BY id ASC";
@@ -81,12 +85,19 @@ include 'database.php';
                     ?>
                     <tr>
                         <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['username']; ?></td>
+                        <td><?php echo $row['fullname']; ?></td>
                         <td><?php echo $row['email']; ?></td>
-                        <td>
+                        <td><?php echo $row['phone']; ?></td>
+                        <td><?php echo $row['address']; ?></td>
+                         <td>
                         <form action="admin_approval.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <button class="btn btn-success" type="submit" name="approve">Approve</button>
+                            </form>
+                         </td>
+                         <td>
+                        <form action="admin_approval.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <button class="btn btn-danger" type="submit" name="deny">Deny</button>
                             </form>
                         </td>
@@ -97,18 +108,6 @@ include 'database.php';
             </tbody>
         </table>
     </div>
-       <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        &copy; Rental House Management System
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
     
 <!-- jQuery -->
 <script src="assets/js/jquery-2.1.0.min.js"></script>
