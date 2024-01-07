@@ -67,7 +67,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Admin Login</h2>
+                        <h2>Student Login</h2>
                     </div>
                 </div>
             </div>
@@ -80,18 +80,18 @@
         <div class="container">
 
         <?php
-        if (isset($_POST["login"])) {
+        if (isset($_POST["login_student"])) {
            $username = $_POST["username"];
            $password = $_POST["password"];
             require_once "database.php";
-            $sql = "SELECT * FROM admin WHERE username = '$username'";
+            $sql = "SELECT * FROM student WHERE username = '$username'";
             $result = mysqli_query($conn, $sql);
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if ($user) {
                 if (password_verify($password, $user["password"])) {
                     session_start();
                     $_SESSION["user"] = "yes";
-                    header("Location: admin_dashboard.php");
+                    header("Location: student_mainPage.php");
                     die();
                 }else{
                     echo "<div class='alert alert-danger'>Password does not match</div>";
@@ -103,15 +103,15 @@
         ?>
 
                     <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
-                        <form action="admin_login.php" method="post">
+                        <form action="student_login.php" method="post">
                               <fieldset>
-                              <input type="text" placeholder="Enter Username" name="username" class="form-control">
+                              <input type="text" placeholder="Username *last IC number" name="username" class="form-control">
                               </fieldset>
                               <fieldset>
-                              <input type="password" placeholder="Enter Password" name="password" class="form-control">
+                              <input type="password" placeholder="Password *matric number" name="password" class="form-control">
                               </fieldset>
                               <fieldset>
-                                <button type="submit" value="Login" name="login" class="main-button">Login</button>
+                                <button type="submit" value="Login" name="login_student" class="main-button">Login</button>
                               </fieldset>
                         </form>
                     </div>

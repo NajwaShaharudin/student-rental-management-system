@@ -1271,3 +1271,15 @@ a:focus,
 a:hover {
   color: #f9735b;
 }
+
+/* 
+---------------------------------------------
+studentList
+--------------------------------------------- 
+*/
+
+table  td, table th{
+  vertical-align:middle;
+  text-align:right;
+  padding:20px!important;
+  }
