@@ -52,7 +52,7 @@
                               
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="admin_login.php">Admin</a>
-                                    <a class="dropdown-item" href="login.php">Landlord</a>
+                                    <a class="dropdown-item" href="landlord_login.php">Landlord</a>
                                     <a class="dropdown-item" href="student_login.php">Student</a>
                                 </div>
                             </li>
