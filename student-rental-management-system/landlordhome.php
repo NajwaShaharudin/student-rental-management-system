@@ -47,8 +47,9 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                         <li><a href="landlordhome.php" class="active">Home</a></li>
-                        <li><a href="lanlordhouse.html">Register House</a></li>   
-                            <li><a href="landlordviewstud.html">Review Applicants</a></li>
+                        <li><a href="landlordlistinghouse.php">House Listing</a></li>   
+                        <li><a href="landlordhouse.php">Register House</a></li>   
+                            <li><a href="landlordviewstud.php">Review Applicants</a></li>
                             <li><a href="contact.html">Contact</a></li>          
                         <a class='menu-trigger'>
                             <span>Menu</span>

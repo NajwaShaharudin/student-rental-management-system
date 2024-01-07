@@ -42,21 +42,12 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">House<em> Rental</em></a>
+                        <a href="studenthome.php" class="logo">House<em> Rental</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php" class="active">Home</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="admin_login.php">Admin</a>
-                                    <a class="dropdown-item" href="login.php">Landlord</a>
-                                    <a class="dropdown-item" href="">Student</a>
-                                </div>
-                            </li>
-                        </ul>               
+                        <li><a href="studenthome.php" class="active">Home</a></li>
+                            <li><a href="contact.html">Contact</a></li>          
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -104,12 +95,12 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>RM</sup>1500</del>  <sup>RM</sup>1100
+                                <del><sup>$</sup>80 000</del>  <sup>$</sup>70 000
                             </span>
 
-                            <h4>BRAND NEW unit at Starling Bandar Rimbayu *LIMITED UNITS*</h4>
+                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
 
-                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;</p>
+                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;/&nbsp; 2010</p>
 
                             <ul class="social-icons">
                                 <li><a href="property-details.html">+ View More</a></li>
@@ -124,12 +115,12 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>RM</sup>2000</del>  <sup>RM</sup>1800
+                                <del><sup>$</sup>80 000</del>  <sup>$</sup>70 000
                             </span>
 
-                            <h4>Double Storey Semi D Vista Kirana Ayer Keroh Melaka</h4>
+                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
 
-                            <p>House &nbsp;/&nbsp; Rent &nbsp;/&nbsp; 100 sq m &nbsp;</p>
+                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;/&nbsp; 2010</p>
 
                             <ul class="social-icons">
                                 <li><a href="property-details.html">+ View More</a></li>
@@ -144,12 +135,12 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>RM</sup>1000</del>  <sup>RM</sup>900
+                                <del><sup>$</sup>80 000</del>  <sup>$</sup>70 000
                             </span>
 
-                            <h4>Parkland Residence @ Sungai Melaka for rent</h4>
+                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
 
-                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;</p>
+                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;/&nbsp; 2010</p>
 
                             <ul class="social-icons">
                                 <li><a href="property-details.html">+ View More</a></li>
