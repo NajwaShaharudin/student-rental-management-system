@@ -42,14 +42,11 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
+                        <a href="studenthome.php" class="logo">House<em> Rental</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li><a href="landlordhome.php" class="active">Home</a></li>
-                        <li><a href="landlordlistinghouse.php">House Listing</a></li>   
-                        <li><a href="landlordhouse.php">Register House</a></li>   
-                            <li><a href="landlordviewstud.php">Review Applicants</a></li>
+                        <li><a href="studenthome.php" class="active">Home</a></li>
                             <li><a href="contact.html">Contact</a></li>          
                         <a class='menu-trigger'>
                             <span>Menu</span>

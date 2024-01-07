@@ -104,12 +104,12 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>80 000</del>  <sup>$</sup>70 000
+                                <del><sup>RM</sup>1500</del>  <sup>RM</sup>1100
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>BRAND NEW unit at Starling Bandar Rimbayu *LIMITED UNITS*</h4>
 
-                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;/&nbsp; 2010</p>
+                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;</p>
 
                             <ul class="social-icons">
                                 <li><a href="property-details.html">+ View More</a></li>
@@ -124,12 +124,12 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>80 000</del>  <sup>$</sup>70 000
+                                <del><sup>RM</sup>2000</del>  <sup>RM</sup>1800
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>Double Storey Semi D Vista Kirana Ayer Keroh Melaka</h4>
 
-                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;/&nbsp; 2010</p>
+                            <p>House &nbsp;/&nbsp; Rent &nbsp;/&nbsp; 100 sq m &nbsp;</p>
 
                             <ul class="social-icons">
                                 <li><a href="property-details.html">+ View More</a></li>
@@ -144,12 +144,12 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>80 000</del>  <sup>$</sup>70 000
+                                <del><sup>RM</sup>1000</del>  <sup>RM</sup>900
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>Parkland Residence @ Sungai Melaka for rent</h4>
 
-                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;/&nbsp; 2010</p>
+                            <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;</p>
 
                             <ul class="social-icons">
                                 <li><a href="property-details.html">+ View More</a></li>

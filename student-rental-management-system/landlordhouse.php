@@ -226,8 +226,9 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                     <li><a href="landlordhome.php">Home</a></li>
-                    <li><a href="lanlordhouse.html" class="active">Register House</a></li>   
-                        <li><a href="landlordviewstud.html">Review Applicants</a></li>
+                    <li><a href="landlordlistinghouse.php">House Listing</a></li>
+                    <li><a href="landlordhouse.php" class="active">Register House</a></li>   
+                        <li><a href="landlordviewstud.php">Review Applicants</a></li>
                         <li><a href="contact.html">Contact</a></li>          
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -264,21 +265,21 @@
             <article>
                 <h4>Property Details</h4>
                 <div class="testbox">
-                    <form action="landlordhouseform.php" method="post" enctype="multipart/form-data">
+                    <form action="dbconnection.php" method="post" enctype="multipart/form-data">
                       <div class="item">
                         <p>House Type</p>
                           <select id="type" name="type">
                             <option value="">Type</option>
-                            <option value="1">Bungalow House</option>
-                            <option value="2">Link Bungalow</option>
-                            <option value="3">Zero-Lot Bungalow</option>
-                            <option value="4">Semi-Detached House</option>
-                            <option value="5">Cluster House</option>
-                            <option value="6">Terraced House</option>
-                            <option value="7">Townhouse</option>
-                            <option value="8">Twin Villas</option>
-                            <option value="9">Twin Courtyard Villa</option>
-                            <option value="10">Others</option>
+                            <option value="Bungalow House">Bungalow House</option>
+                            <option value="Link Bungalow">Link Bungalow</option>
+                            <option value="Zero-Lot Bungalow">Zero-Lot Bungalow</option>
+                            <option value="Semi-Detached House">Semi-Detached House</option>
+                            <option value="Cluster House">Cluster House</option>
+                            <option value="Terraced House">Terraced House</option>
+                            <option value="Townhouse">Townhouse</option>
+                            <option value="Twin Villas">Twin Villas</option>
+                            <option value="Condominium">Condominium</option>
+                            <option value="Apartment">Apartment</option>
                           </select>
                       </div>
                       <div class="item">
@@ -294,8 +295,8 @@
                         <textarea rows="3" id="info" name="info" placeholder="Information About House"></textarea>
                       </div>
                       <div class="item">
-                        <p>House Image</p>
-                        <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" value="">
+                        <p>Image</p>
+                        <input type="file" name="image" id ="image"> 
                       </div>
                       <div class="btn-block">
                         <button type="submit" name="submit">SUBMIT</button>
