@@ -195,7 +195,7 @@
                                         <p class="card-text">
                                             <?php echo $row['address']; ?>
                                         </p>
-                                        <button class="btn btn-success">View Details </button>
+                                        <a href="lanlordhousedetails.php" class="btn btn-info" role="button">View Details</a>
                                     </div>
                                 </div>
                             </div>
