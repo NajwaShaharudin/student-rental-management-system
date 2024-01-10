@@ -77,7 +77,7 @@
                     <div class="trainer-item">
                     <ul class="social-icons">
                                 <li><a href="regs_student.php" >
-                                <img src="assets/images/profile-icon.jpg" alt="profile-icon" width="250" height="450">
+                                <img src="assets/images/profile-icon.jpg" alt="profile-icon" width="50" height="150">
                                 </a></li>
                             </ul>
                         <div class="down-content">
@@ -89,13 +89,23 @@
                     <div class="trainer-item">
                     <ul class="social-icons">
                                 <li><a href="view_studentList.php" >
-                                <img src="assets/images/list-student.jpg" alt="list-student" width="250" height="450">
+                                <img src="assets/images/list-student.jpg" alt="list-student" width="50" height="150">
                                 </a></li>
                             </ul>
                         <div class="down-content">
-
                             <h4>LIST OF STUDENT</h4>
-
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="trainer-item">
+                    <ul class="social-icons">
+                                <li><a href="admin_approval.php" >
+                                <img src="assets/images/approved.png" alt="approved-icon" width="50" height="150">
+                                </a></li>
+                            </ul>
+                        <div class="down-content">
+                            <h4>LANDLORD REGISTRATION APPROVAL</h4>
                         </div>
                     </div>
                 </div>
