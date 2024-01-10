@@ -186,15 +186,16 @@
                         while($row = mysqli_fetch_assoc($query_run))
                         {
                             ?>
-                            <div class="col-md-4">
+                            <div class="col-md-3 mt-3">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="student-rental-management-system/upload/<?php echo $row['image_url']; ?>" class="card-img-top" alt="House">
+                                        <img src="upload/<?php echo $row['image_url']; ?>" width="200px" height="200px" alt="House">
                                         <h3 class="card-title"><?php echo $row['address']; ?></h3>
                                         <h4 class="card-title"><?php echo $row['rent']; ?></h4>
                                         <p class="card-text">
                                             <?php echo $row['address']; ?>
                                         </p>
+                                        <button class="btn btn-success">View Details </button>
                                     </div>
                                 </div>
                             </div>
