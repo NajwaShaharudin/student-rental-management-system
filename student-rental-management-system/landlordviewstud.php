@@ -82,8 +82,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © Rental House Management System
-                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
+                             Copyright © student-utem
                     </p>
                 </div>
             </div>

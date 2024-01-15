@@ -313,7 +313,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © Rental House Management System
+                    Copyright © student-utem
                     </p>
                 </div>
             </div>
