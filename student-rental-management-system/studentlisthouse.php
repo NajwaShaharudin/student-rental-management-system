@@ -122,7 +122,7 @@
                                     <h3 class="card-title"><?php echo $row['address']; ?></h3>
                                     <h4 class="card-title"><?php echo $row['rent']; ?></h4>
                                     <!-- Add a link to the details page with the house_id parameter -->
-                                    <a href="studenthousedetails.php?house_id=<?php echo $row['id']; ?>" class="btn btn-info" role="button">View Details</a>
+                                    <a href="studenthousedetails.php?id=<?php echo $row['id']; ?>" class="btn btn-info" role="button">View Details</a>
                                 </div>
                             </div>
                         </div>

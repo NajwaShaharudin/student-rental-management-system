@@ -3,8 +3,8 @@
 require 'database.php';
 
 // Check if the house id is provided in the URL
-if(isset($_GET['house_id'])) {
-    $house_id = $_GET['house_id'];
+if(isset($_GET['id'])) {
+    $house_id = $_GET['id'];
 
     // Fetch house details from the database based on the provided house_id
     $query = "SELECT * FROM house WHERE id = $house_id";
@@ -66,10 +66,6 @@ if(isset($_GET['house_id'])) {
         .card {
             border: none;
             transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
         }
 
         img {
@@ -323,7 +319,7 @@ if(isset($_GET['house_id'])) {
                         <h5 class="card-text"><strong>Info:</strong> <?php echo $info; ?></h5>
                         <br>
                         <!-- Add other details as needed -->
-                        <a href="studentapplication.php?house_id=<?php echo $row['id']; ?>" class="btn btn-info">Book This House</a>
+                        <a href="studentapplication.php?id=<?php echo $row['id']; ?>" class="btn btn-info">Book This House</a>
                     </div>
                   </div>
                   </div>
