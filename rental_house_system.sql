@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2024 at 08:34 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jan 16, 2024 at 09:53 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,38 +31,27 @@ CREATE TABLE `admin` (
   `id` int(20) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$uvy/0YNGixyrioy1PEovgeIL27Y9CHktUOTnpK4f4YspL5MRaBlzm'),
-(2, 'admin2', '$2y$10$m7tWdZpYq7.2xJdXJ8oxmOlVfqo3ahnjr4QYXj5JG9nSzcjSQ9hxm'),
-(3, 'Ashraf', '$2y$10$IRCGly4ORfxtiglAuVhTxuODsq6TKVrfK2q7rVWw16h4oiBxg4Bz.');
+(5, 'admin', '$2y$10$EvkqSozyLC2hnIHLppzNxOWZNOZ8mg9Zo4uwnZayqP3rdvAfgG1AC');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `applications`
+-- Table structure for table `complain`
 --
 
-CREATE TABLE `applications` (
-  `id` int(255) NOT NULL,
-  `student_name` varchar(255) NOT NULL,
-  `student_email` varchar(255) NOT NULL,
-  `student_phone` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `applications`
---
-
-INSERT INTO `applications` (`id`, `student_name`, `student_email`, `student_phone`) VALUES
-(0, 'suhail', 'suhailbaharom@gmail.com', '212121'),
-(0, 'suhail', 'suhailbaharom@gmail.com', '212121'),
-(0, 'suhail', 'suhailbaharom@gmail.com', '3665336');
+CREATE TABLE `complain` (
+  `id` int(11) NOT NULL,
+  `dateTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `message` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,7 +66,7 @@ CREATE TABLE `house` (
   `address` varchar(255) NOT NULL,
   `info` varchar(255) NOT NULL,
   `image_url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `house`
@@ -94,22 +83,26 @@ INSERT INTO `house` (`id`, `type`, `rent`, `address`, `info`, `image_url`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `landlord_register`
+-- Table structure for table `landlord`
 --
 
-CREATE TABLE `landlord_register` (
+CREATE TABLE `landlord` (
   `id` int(11) NOT NULL,
   `fullname` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `phone` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `landlord_register`
+-- Dumping data for table `landlord`
 --
 
-INSERT INTO `landlord_register` (`id`, `fullname`, `email`, `password`) VALUES
-(1, 'Najwa', 'najwashaharudinoj@gmail.com', '$2y$10$N2OfYB0Zpx1tLnR6vc/sF.njflIW0rEEU56QIQY8MH.3Xgu5B5KXK');
+INSERT INTO `landlord` (`id`, `fullname`, `username`, `email`, `phone`, `address`, `password`, `status`) VALUES
+(1, 'Nur MisyaAbdullah', 'misya', 'misya@gmail.com', '012-4545664', 'No 45 Bagan Serai, Penang', 'misya123', 'approved');
 
 -- --------------------------------------------------------
 
@@ -127,7 +120,7 @@ CREATE TABLE `student` (
   `address` varchar(255) NOT NULL,
   `matricNo` varchar(255) NOT NULL,
   `ic_no` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student`
@@ -161,15 +154,21 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `complain`
+--
+ALTER TABLE `complain`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `house`
 --
 ALTER TABLE `house`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `landlord_register`
+-- Indexes for table `landlord`
 --
-ALTER TABLE `landlord_register`
+ALTER TABLE `landlord`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -186,7 +185,13 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `complain`
+--
+ALTER TABLE `complain`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `house`
@@ -195,9 +200,9 @@ ALTER TABLE `house`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `landlord_register`
+-- AUTO_INCREMENT for table `landlord`
 --
-ALTER TABLE `landlord_register`
+ALTER TABLE `landlord`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
