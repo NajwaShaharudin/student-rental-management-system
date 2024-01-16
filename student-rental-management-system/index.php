@@ -46,7 +46,6 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php" class="active">Home</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
                               
@@ -176,8 +175,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © student-utem
-                        
+                    Copyright © Rental House Management System
                     </p>
                 </div>
             </div>

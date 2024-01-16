@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,10 +75,18 @@
 
                 $sql = "INSERT INTO student (name, username, password, phone_num, email, address, matricNo, ic_no) VALUES (?,?,?,?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
+
                 $prepareStat = mysqli_stmt_prepare($stmt,$sql);
              if ($prepareStat) {
                 mysqli_stmt_bind_param($stmt,"ssssssss",$name, $username, $passwordHash, $phone_num, $email, $address, $matricNo, $ic_no);
                 mysqli_stmt_execute($stmt);
+
+                // Store relevant information in session
+                $_SESSION['user'] = [
+                    'username' => $username,
+                    'email' => $email
+                ];
+
                 echo "<div class='alert alert-success'>Student account registered successfully.</div>";
             }else{
                 die("Something went wrong");

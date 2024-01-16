@@ -49,8 +49,7 @@
                     <li><a href="landlordhome.php">Home</a></li>
                     <li><a href="landlordlistinghouse.php" class="active">House Listing</a></li>
                     <li><a href="landlordhouse.php">Register House</a></li>   
-                        <li><a href="landlordviewstud.php">Review Applicants</a></li>
-                        <li><a href="contact.html">Contact</a></li>          
+                        <li><a href="landlordviewstud.php">Review Applicants</a></li>      
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -148,7 +147,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                             Copyright © student-utem
+                         Copyright © Rental House Management System
                     </p>
                 </div>
             </div>
