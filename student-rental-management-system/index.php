@@ -92,7 +92,10 @@
                     <div class="section-heading">
                         <h2>Featured <em>Properties</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
-                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                        <p>Discover our featured properties, each embodying exquisite design and modern luxury. 
+                            These residences boast spacious interiors, premium amenities, and prime locations. 
+                            Elevate your lifestyle with our carefully curated selection of exceptional homes.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -100,60 +103,42 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
+                            <img src="assets/images/rumaha.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>
-                                <del><sup>RM</sup>1500</del>  <sup>RM</sup>1100
-                            </span>
 
                             <h4>BRAND NEW unit at Starling Bandar Rimbayu *LIMITED UNITS*</h4>
 
                             <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;</p>
 
-                            <ul class="social-icons">
-                                <li><a href="property-details.html">+ View More</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
+                            <img src="assets/images/rumahb.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>
-                                <del><sup>RM</sup>2000</del>  <sup>RM</sup>1800
-                            </span>
-
+                        
                             <h4>Double Storey Semi D Vista Kirana Ayer Keroh Melaka</h4>
 
                             <p>House &nbsp;/&nbsp; Rent &nbsp;/&nbsp; 100 sq m &nbsp;</p>
 
-                            <ul class="social-icons">
-                                <li><a href="property-details.html">+ View More</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
+                            <img src="assets/images/rumahc.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>
-                                <del><sup>RM</sup>1000</del>  <sup>RM</sup>900
-                            </span>
 
                             <h4>Parkland Residence @ Sungai Melaka for rent</h4>
 
                             <p>House &nbsp;/&nbsp; For Sale &nbsp;/&nbsp; 100 sq m &nbsp;</p>
 
-                            <ul class="social-icons">
-                                <li><a href="property-details.html">+ View More</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -162,7 +147,7 @@
             <br>
 
             <div class="main-button text-center">
-                <a href="properties.html">View Properties</a>
+                <a href="student_login.php">View Properties</a>
             </div>
         </div>
     </section>

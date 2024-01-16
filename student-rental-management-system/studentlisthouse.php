@@ -88,21 +88,21 @@
             <br>
 
             <div class="contact-form">
-                <form action="#" id="contact">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label>House Address:</label>
-                            <input type="text" name="house_address" placeholder="Enter house address">
-                        </div>
+            <form action="studentlisthouse.php" method="GET" id="contact">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label>House Address:</label>
+                        <input type="text" name="house_address" placeholder="Enter house address" value="<?php echo isset($_GET['house_address']) ? $_GET['house_address'] : ''; ?>">
                     </div>
-                    <div class="col-sm-4 offset-sm-4">
+                </div>
+                <div class="col-sm-4 offset-sm-4">
                     <div class="main-button text-center">
                         <button type="submit">Search</button>
                     </div>
                 </div>
                 <br>
                 <br>
-                </form>
+            </form>
             </div>
             <div class = "container py-5"> 
                 <div class="row mt-2">
