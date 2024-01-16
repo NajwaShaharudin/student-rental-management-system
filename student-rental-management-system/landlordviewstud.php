@@ -74,6 +74,49 @@
             </div>
         </div>
     </section>
+
+    <section class="section" id="approve-applicants">
+        <div class="container">
+            <br>
+            <br>
+            <h2>Approve Student Applicants</h2>
+            <div class="row mt-2">
+                <?php
+                // Include your database connection file
+                require 'database.php';
+
+                // Fetch and display pending student applications
+                $query = "SELECT * FROM student_applications WHERE status = 'pending'";
+                $query_run = mysqli_query($conn, $query);
+                $check_applications = mysqli_num_rows($query_run) > 0;
+
+                if ($check_applications) {
+                    while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        <div class="col-md-4 mt-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Applicant: <?php echo $row['student_name']; ?></h4>
+                                    <p><strong>House ID:</strong> <?php echo $row['house_id']; ?></p>
+                                    <!-- Add buttons to approve and reject applicants -->
+                                    <form action="process_approve_applicant.php" method="POST">
+                                        <input type="hidden" name="application_id" value="<?php echo $row['id']; ?>">
+                                        <button type="submit" name="approve" class="btn btn-success">Approve</button>
+                                        <button type="submit" name="reject" class="btn btn-danger">Reject</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    echo "No pending applications";
+                }
+                ?>
+            </div>
+            <br>
+        </div>
+    </section>
     
     <!-- ***** Footer Start ***** -->
     <footer>
