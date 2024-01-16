@@ -267,12 +267,12 @@ if(isset($_GET['house_id'])) {
                 <div class="col-12">
                   <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
+                    <a href="student_mainPage.php" class="logo">House<em> Rental</em></a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                    <li><a href="landlordhome.php">Home</a></li>
-                    <li><a href="landlordlistinghouse.php" class="active">House Listing</a></li>
+                    <li><a href="student_mainPage.php">Home</a></li>
+                    <li><a href="studentlisthouse.php" class="active">House Listing</a></li>
                     <li><a href="landlordhouse.php">Register House</a></li>   
                         <li><a href="landlordviewstud.php">Review Applicants</a></li>
                         <li><a href="contact.html">Contact</a></li>          
@@ -294,42 +294,52 @@ if(isset($_GET['house_id'])) {
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>House <em>Details</em></h2>
-                        <p>Creating a compelling house ad requires landlords to accurately represent property features, location, 
-                            and price while considering factors like location, competition, and timing. Attention to detail, high-quality 
-                            images, and regular updates contribute to the ad's effectiveness.</p>
+                        <h2>Student <em>Applications</em></h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="viewdetails">
-        <div class="container">
-            <br>
-            <br>
-            <article>
-                  <div class="testbox">
+    <section class="section" id="applyforhouse">
+    <div class="container">
+        <br>
+        <br>
+        <article>
+            <div class="testbox">
+                <form action="studentprocess_application.php" method="POST">
+                    <!-- Hidden input for house_id to associate the application with a specific house -->
+                    <input type="hidden" name="house_id" value="<?php echo $house_id; ?>">
+
+                    <!-- Student Information -->
                     <div class="card">
-                    <img class="card-img-top" src="upload/<?php echo $image_url; ?>" alt="House Image">
-                    <div class="card-body">
-                        <h2 class="card-title">House Details</h2>
-                        <h5 class="card-text"><strong>Address:</strong> <?php echo $address; ?></h5>
-                        <br>
-                        <h5 class="card-text"><strong>Rent:</strong> <?php echo $rent; ?></h5>
-                        <br>
-                        <h5 class="card-text"><strong>Type:</strong> <?php echo $type; ?></h5>
-                        <br>
-                        <h5 class="card-text"><strong>Info:</strong> <?php echo $info; ?></h5>
-                        <br>
-                        <!-- Add other details as needed -->
-                        <a href="landlordlistinghouse.php" class="btn btn-info">Back to Listings</a>
+                        <h2 class="card-title">Student Application</h2>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="student_name">Your Name:</label>
+                                <input type="text" name="student_name" id="student_name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="student_email">Your Email:</label>
+                                <input type="email" name="student_email" id="student_email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="student_phone">Your Phone Number:</label>
+                                <input type="tel" name="student_phone" id="student_phone" required>
+                            </div>
+
+                            <!-- Additional fields as needed (e.g., student preferences, etc.) -->
+
+                            <button type="submit" class="btn btn-success">Submit Application</button>
+                        </div>
                     </div>
-                  </div>
-                  </div>
-              </article>
-          </div>
-    </section>
+                </form>
+            </div>
+        </article>
+    </div>
+</section>
 
     <!-- ***** Footer Start ***** -->
     <footer>

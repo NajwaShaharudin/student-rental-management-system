@@ -42,12 +42,12 @@
                 <div class="col-12">
                   <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
+                    <a href="student_mainPage.php" class="logo">House<em> Rental</em></a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                    <li><a href="landlordhome.php">Home</a></li>
-                    <li><a href="landlordlistinghouse.php" class="active">House Listing</a></li>
+                    <li><a href="student_mainPage.php">Home</a></li>
+                    <li><a href="studentlisthouse.php" class="active">House Listing</a></li>
                     <li><a href="landlordhouse.php">Register House</a></li>   
                         <li><a href="landlordviewstud.php">Review Applicants</a></li>
                         <li><a href="contact.html">Contact</a></li>          
@@ -123,7 +123,7 @@
                                     <h3 class="card-title"><?php echo $row['address']; ?></h3>
                                     <h4 class="card-title"><?php echo $row['rent']; ?></h4>
                                     <!-- Add a link to the details page with the house_id parameter -->
-                                    <a href="lanlordhousedetails.php?house_id=<?php echo $row['id']; ?>" class="btn btn-info" role="button">View Details</a>
+                                    <a href="studenthousedetails.php?house_id=<?php echo $row['id']; ?>" class="btn btn-info" role="button">View Details</a>
                                 </div>
                             </div>
                         </div>

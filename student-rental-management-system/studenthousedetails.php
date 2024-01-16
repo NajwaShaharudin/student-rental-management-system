@@ -267,12 +267,12 @@ if(isset($_GET['house_id'])) {
                 <div class="col-12">
                   <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
+                    <a href="student_mainPage.php" class="logo">House<em> Rental</em></a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                    <li><a href="landlordhome.php">Home</a></li>
-                    <li><a href="landlordlistinghouse.php" class="active">House Listing</a></li>
+                    <li><a href="student_mainPage.php">Home</a></li>
+                    <li><a href="studentlisthouse.php" class="active">House Listing</a></li>
                     <li><a href="landlordhouse.php">Register House</a></li>   
                         <li><a href="landlordviewstud.php">Review Applicants</a></li>
                         <li><a href="contact.html">Contact</a></li>          
@@ -323,7 +323,7 @@ if(isset($_GET['house_id'])) {
                         <h5 class="card-text"><strong>Info:</strong> <?php echo $info; ?></h5>
                         <br>
                         <!-- Add other details as needed -->
-                        <a href="landlordlistinghouse.php" class="btn btn-info">Back to Listings</a>
+                        <a href="studentapplication.php?house_id=<?php echo $row['id']; ?>" class="btn btn-info">Book This House</a>
                     </div>
                   </div>
                   </div>
