@@ -1,3 +1,32 @@
+<?php
+// Include your database connection file
+require 'database.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Retrieve data from the form
+    $application_id = mysqli_real_escape_string($conn, $_POST['application_id']);
+    $startRental = mysqli_real_escape_string($conn, $_POST['startRental']);
+    $endRental = mysqli_real_escape_string($conn, $_POST['endRental']);
+
+    // Insert data into the sign_agreements table
+    $insert_agreement_query = "INSERT INTO sign_agreements (application_id, startRental, endRental) 
+                               VALUES ('$application_id', '$startRental', '$endRental')";
+
+    if (mysqli_query($conn, $insert_agreement_query)) {
+        echo "<script> 
+            alert('Agreement Signed Successfully');
+            document.location.href = 'landlordviewstud.php';
+            </script>";
+        exit();
+    } else {
+        echo "Error: " . $insert_agreement_query . "<br>" . mysqli_error($conn);
+        // Handle the case where the insertion fails
+    }
+} else {
+    echo "Invalid request";
+    // Handle the case where the form is not submitted
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,8 +63,7 @@
     </div>
     <!-- ***** Preloader End ***** -->
     
-
-
+    
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -43,15 +71,16 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
+                        <a href="student_mainPage.php" class="logo"><em>House Rental</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li><a href="landlordhome.php">Home</a></li>
-                        <li><a href="landlordlistinghouse.php">House Listing</a></li>   
-                        <li><a href="landlordhouse.php">Register House</a></li>   
-                        <li><a href="landlordviewstud.php"class="active">Review Applicants</a></li>  
-                        <li><a href="landlord_logout.php">Logout</a></li> 
+                        <li><a href="student_mainPage.php">Home</a></li>   
+                        <li><a href="studentlisthouse.php">House Listing</a></li>   
+                        <li><a href="studentapproval.php" class="active">Sign Agreement</a></li>   
+                        <li><a href="student_complain.php">Report House</a></li>
+                        <li><a href="student_logout.php">Logout</a></li> 
+                                   
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -61,8 +90,7 @@
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-
+    <!-- ***** Call to Action Start ***** -->
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
@@ -70,55 +98,42 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Student <em>Application</em></h2>
+                        <h2>Sign <em>Agreement</em></h2>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- ***** Call to Action End ***** -->
 
-    <section class="section" id="approve-applicants">
+    <!-- ***** Fleet Starts ***** -->
+    <section class="section" id="trainers">
         <div class="container">
             <br>
             <br>
-            <h2>Approve Student Applicants</h2>
-            <div class="row mt-2">
-                <?php
-                // Include your database connection file
-                require 'database.php';
-
-                // Fetch and display pending student applications
-                $query = "SELECT * FROM student_applications WHERE status = 'pending'";
-                $query_run = mysqli_query($conn, $query);
-                $check_applications = mysqli_num_rows($query_run) > 0;
-
-                if ($check_applications) {
-                    while ($row = mysqli_fetch_assoc($query_run)) {
-                        ?>
-                        <div class="col-md-4 mt-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Applicant: <?php echo $row['student_name']; ?></h4>
-                                    <p><strong>House ID:</strong> <?php echo $row['house_id']; ?></p>
-                                    <!-- Add buttons to approve and reject applicants -->
-                                    <form action="landlordapproveapplication.php" method="POST">
-                                        <input type="hidden" name="application_id" value="<?php echo $row['application_id']; ?>">
-                                        <button type="submit" name="approve" class="btn btn-success">Approve</button>
-                                        <button type="submit" name="reject" class="btn btn-danger">Reject</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    echo "No pending applications";
-                }
-                ?>
-            </div>
+            <h2>Sign Agreement</h2>
             <br>
+            <form action="studentsignagreement.php" method="post">
+                <!-- Hidden input to store the application_id -->
+                <input type="hidden" name="application_id" value="<?php echo $_GET['application_id']; ?>">
+
+                <div class="form-group">
+                    <label for="startRental">Start Rental Date:</label>
+                    <input type="date" class="form-control" id="startRental" name="startRental" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endRental">End Rental Date:</label>
+                    <input type="date" class="form-control" id="endRental" name="endRental" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sign Agreement</button>
+            </form>
         </div>
     </section>
+    <!-- ***** Fleet Ends ***** -->
+
     
     <!-- ***** Footer Start ***** -->
     <footer>
@@ -126,7 +141,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                           Copyright © Rental House Management System
+                        Copyright © 2020 Company Name
+                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
                     </p>
                 </div>
             </div>

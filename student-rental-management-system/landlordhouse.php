@@ -219,21 +219,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                  <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                    <li><a href="landlordhome.php">Home</a></li>
-                    <li><a href="landlordlistinghouse.php">House Listing</a></li>
-                    <li><a href="landlordhouse.php" class="active">Register House</a></li>   
-                        <li><a href="landlordviewstud.php">Review Applicants</a></li>       
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="landlordhome.php" class="logo">House<em> Rental</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                        <li><a href="landlordhome.php">Home</a></li>
+                        <li><a href="landlordlistinghouse.php">House Listing</a></li>   
+                        <li><a href="landlordhouse.php"class="active">Register House</a></li>   
+                        <li><a href="landlordviewstud.php">Review Applicants</a></li>  
+                        <li><a href="landlord_logout.php">Logout</a></li> 
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
                 </div>
             </div>
         </div>

@@ -9,18 +9,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check which button was clicked (Approve or Reject)
     if (isset($_POST['approve'])) {
         // Update the application status to 'approved'
-        $update_query = "UPDATE student_applications SET status = 'approved' WHERE id = $application_id";
+        $update_query = "UPDATE student_applications SET status = 'approved' WHERE application_id = $application_id";
+        
+        if (mysqli_query($conn, $update_query)) {
+            echo "<script> 
+            alert('Application Approved');
+            document.location.href = 'landlordviewstud.php';
+            </script>";
+            exit();
+        } else {
+            echo "Error: " . $update_query . "<br>" . mysqli_error($conn);
+            // Handle the case where the update fails
+        }
     } elseif (isset($_POST['reject'])) {
         // Update the application status to 'rejected'
-        $update_query = "UPDATE student_applications SET status = 'rejected' WHERE id = $application_id";
-    }
-
-    if (mysqli_query($conn, $update_query)) {
-        header("Location: landlordapproveapplicant.php");
-        exit();
+        $update_query = "UPDATE student_applications SET status = 'rejected' WHERE application_id = $application_id";
+        
+        if (mysqli_query($conn, $update_query)) {
+            echo "<script> 
+            alert('Application Rejected');
+            document.location.href = 'landlordviewstud.php';
+            </script>";
+            exit();
+        } else {
+            echo "Error: " . $update_query . "<br>" . mysqli_error($conn);
+            // Handle the case where the update fails
+        }
     } else {
-        echo "Error: " . $update_query . "<br>" . mysqli_error($conn);
-        // Handle the case where the update fails
+        echo "Invalid action";
+        // Handle the case where neither approve nor reject button was clicked
     }
 } else {
     echo "Invalid request";
