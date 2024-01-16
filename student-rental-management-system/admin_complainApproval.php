@@ -52,14 +52,14 @@
         $id = $_POST['id'];
        $select = "UPDATE complain SET status = 'approved' WHERE id = '$id'";
        $result = mysqli_query($conn, $select);
-       echo "<div class='alert alert-success'>You complain has been approved.</div>";
+       echo "<div class='alert alert-success'>Complain has been approved.</div>";
     }
 
     if (isset($_POST['deny'])) {
         $id = $_POST['id'];
        $select = "DELETE FROM complain WHERE id = '$id'";
        $result = mysqli_query($conn, $select);
-       echo "<div class='alert alert-fail'>You complain has been denied.</div>"; 
+       echo "<div class='alert alert-fail'>Complain has been denied.</div>"; 
     }
 ?>
 

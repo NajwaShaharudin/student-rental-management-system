@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +61,7 @@
             <h3>Complain Form</h3>
             <div>
             <button class="button btn btn-grey">
-                <a href="landlordhome.php">Back</a>
+              <a href="student_mainPage.php">Back</a>
             </button>
             </div>
         </header>
