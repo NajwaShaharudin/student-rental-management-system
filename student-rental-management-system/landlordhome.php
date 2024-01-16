@@ -57,7 +57,7 @@ if (!isset($_SESSION["email"]) || empty($_SESSION["email"]) || !isset($_SESSION[
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li><a href="landlordhome.php">Home</a></li>
+                        <li><a href="landlordhome.php" class="active">Home</a></li>
                         <li><a href="landlordlistinghouse.php">House Listing</a></li>   
                         <li><a href="landlordhouse.php">Register House</a></li>   
                         <li><a href="landlordviewstud.php">Review Applicants</a></li>  

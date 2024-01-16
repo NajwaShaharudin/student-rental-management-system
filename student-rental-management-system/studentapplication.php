@@ -265,22 +265,23 @@ if(isset($_GET['id'])) {
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                  <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="student_mainPage.php" class="logo">House<em> Rental</em></a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                    <li><a href="student_mainPage.php">Home</a></li>
-                    <li><a href="studentlisthouse.php" class="active">House Listing</a></li>
-                    <li><a href="landlordhouse.php">Register House</a></li>   
-                        <li><a href="landlordviewstud.php">Review Applicants</a></li>
-                        <li><a href="contact.html">Contact</a></li>          
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="student_mainPage.php" class="logo"><em>House Rental</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                        <li><a href="student_mainPage.php">Home</a></li>   
+                        <li><a href="studentlisthouse.php" class="active">House Listing</a></li>   
+                        <li><a href="studentapproval.php">Sign Agreement</a></li>   
+                        <li><a href="student_complain.php">Report House</a></li>
+                        <li><a href="student_logout.php">Logout</a></li> 
+                                   
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
                 </div>
             </div>
         </div>
