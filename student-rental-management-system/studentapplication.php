@@ -2,32 +2,37 @@
 // Include your database connection file
 require 'database.php';
 
-// Check if the house id is provided in the URL
-if(isset($_GET['house_id'])) {
-    $house_id = $_GET['house_id'];
+// Check if the student_id is provided in the URL
+if(isset($_GET['id'])) {
+    $student_id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    // Fetch house details from the database based on the provided house_id
-    $query = "SELECT * FROM house WHERE id = $house_id";
+    // Fetch student details from the database based on the provided student_id
+    $query = "SELECT s.*, h.id AS id FROM student s
+              JOIN house h ON s.id = h.id
+              WHERE s.id = $student_id";
+    
     $query_run = mysqli_query($conn, $query);
 
-    if(mysqli_num_rows($query_run) > 0) {
-        $row = mysqli_fetch_assoc($query_run);
-        // Retrieve and display house details
-        $address = $row['address'];
-        $rent = $row['rent'];
-        $image_url = $row['image_url'];
-        $type = $row['type'];
-        $info = $row['info'];
-        // Add other details as needed
-
-        // You can use these variables in your HTML to display house details
+    if($query_run) {
+        if(mysqli_num_rows($query_run) > 0) {
+            $row = mysqli_fetch_assoc($query_run);
+            // Retrieve and display student details
+            $name = $row['name'];
+            $phone = $row['phone_num'];
+            $email = $row['email'];
+            $house_id = $row['id'];  // Fetch id from the house table as house_id
+            // Add other details as needed
+        } else {
+            echo "Student not found";
+            // Handle the case where the student with the provided id is not found
+        }
     } else {
-        echo "House not found";
-        // Handle the case where the house with the provided id is not found
+        echo "Query error: " . mysqli_error($conn);
+        // Handle the case where there is an error in the query
     }
 } else {
-    echo "Invalid house id";
-    // Handle the case where house_id is not provided in the URL
+    echo "Invalid student id";
+    // Handle the case where student_id is not provided in the URL
 }
 ?>
 
@@ -67,11 +72,6 @@ if(isset($_GET['house_id'])) {
             border: none;
             transition: transform 0.2s;
         }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
         img {
             max-width: 100%;
             height: auto;
@@ -302,44 +302,46 @@ if(isset($_GET['house_id'])) {
     </section>
 
     <section class="section" id="applyforhouse">
-    <div class="container">
-        <br>
-        <br>
-        <article>
-            <div class="testbox">
-                <form action="studentprocess_application.php" method="POST">
-                    <!-- Hidden input for house_id to associate the application with a specific house -->
-                    <input type="hidden" name="house_id" value="<?php echo $house_id; ?>">
+        <div class="container">
+            <br>
+            <br>
+            <article>
+                <div class="testbox">
+                    <form action="studentprocess_application.php" method="POST">
+                        <!-- Hidden input for house_id to associate the application with a specific house -->
+                        <input type="hidden" name="house_id" value="<?php echo $house_id; ?>">
 
-                    <!-- Student Information -->
-                    <div class="card">
-                        <h2 class="card-title">Student Application</h2>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="student_name">Your Name:</label>
-                                <input type="text" name="student_name" id="student_name" required>
+                        <!-- Student Information -->
+                        <div class="card">
+                            <h2 class="card-title">Student Application</h2>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <h5><strong>Name:</strong> <?php echo $name; ?></h5>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5><strong>Phone Number:</strong> <?php echo $phone; ?></h5>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5><strong>Email:</strong> <?php echo $email; ?></h5>
+                                </div>
+
+                                <!-- Display house details -->
+                                <div class="form-group">
+                                    <h5><strong>House ID:</strong> <?php echo $house_id; ?></h5>
+                                </div>
+
+                                <!-- Additional fields as needed (e.g., student preferences, etc.) -->
+
+                                <button type="submit" class="btn btn-success">Submit Application</button>
                             </div>
-
-                            <div class="form-group">
-                                <label for="student_email">Your Email:</label>
-                                <input type="email" name="student_email" id="student_email" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="student_phone">Your Phone Number:</label>
-                                <input type="tel" name="student_phone" id="student_phone" required>
-                            </div>
-
-                            <!-- Additional fields as needed (e.g., student preferences, etc.) -->
-
-                            <button type="submit" class="btn btn-success">Submit Application</button>
                         </div>
-                    </div>
-                </form>
-            </div>
-        </article>
-    </div>
-</section>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <!-- ***** Footer Start ***** -->
     <footer>
