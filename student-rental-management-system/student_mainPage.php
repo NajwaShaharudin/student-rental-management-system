@@ -58,6 +58,7 @@ if (!isset($_SESSION["student"])) {
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                        <li><a href="student_mainPage.php" class="active">Home</a></li> 
                         <li><a href="studentlisthouse.php">House Listing</a></li>   
                         <li><a href="landlordhouse.php">Sign Agreement</a></li>   
                         <li><a href="studentlisthouse.php">Report House</a></li>
