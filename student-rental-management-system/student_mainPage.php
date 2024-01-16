@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to the login page
+if (!isset($_SESSION["student"])) {
+    header("Location: student_login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +19,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Student Rental Management System</title>
+    <title>Rental Management System</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -42,15 +52,15 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="student_mainPage.php" class="logo">House<em> Rental</em></a>
+                        <a href="student_mainPage.php" class="logo"><em>House Rental</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li><a href="student_mainPage.php" class="active">Home</a></li>
                         <li><a href="studentlisthouse.php">House Listing</a></li>   
-                        <li><a href="landlordhouse.php">Register House</a></li>   
-                            <li><a href="landlordviewstud.php">Review Applicants</a></li>
-                            <li><a href="contact.html">Contact</a></li>          
+                        <li><a href="landlordhouse.php">Sign Agreement</a></li>   
+                        <li><a href="studentlisthouse.php">Report House</a></li>
+                        <li><a href="student_logout.php">Logout</a></li> 
+                                   
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -61,22 +71,6 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/images/video.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Discover Comfortable and Affordable Student House</h6>
-                <h2>Find the perfect <em>House</em></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
 
    <!-- ***** Cars Starts ***** -->
    <section class="section" id="trainers">
@@ -141,7 +135,7 @@
             <br>
 
             <div class="main-button text-center">
-                <a href="studentlisthouse.php">View Properties</a>
+                <a href="properties.html">View Properties</a>
             </div>
         </div>
     </section>
@@ -155,8 +149,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © student-utem
-                        
+                          Copyright © Rental House Management System
                     </p>
                 </div>
             </div>

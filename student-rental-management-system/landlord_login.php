@@ -1,6 +1,6 @@
 <?php
 session_start();
-include'database.php';
+include 'database.php';
 ?>
 
 <!DOCTYPE html>
@@ -69,29 +69,27 @@ include'database.php';
 
     <section class="section" id="contact-us" style="margin-top: 0">
         <div class="container">
+<?php
+        
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        <?php
-        if(isset($_POST['login'])){
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+    $query = "SELECT * FROM landlord WHERE email = ? AND password = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-            $query = "SELECT * FROM landlord WHERE email = ? AND password = ?";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("ss", $email, $password);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
-            $_SESSION["status"] = $row['status'];
-            $_SESSION["email"] = $row['email'];
-            $_SESSION["password"] = $row['password'];
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $_SESSION["status"] = $row['status'];
+        $_SESSION["email"] = $row['email'];
+        $_SESSION["password"] = $row['password'];
 
         if ($row['status'] == "approved") {
-            echo '<script type="text/javascript">';
-            echo 'alert("Login Success");';
-            echo 'window.location.href = "landlordhome.php";';
-            echo '</script>';
+            header("Location: landlordhome.php");
+            exit();
         } elseif ($row['status'] == "pending") {
             echo '<script type="text/javascript">';
             echo 'alert("Your login is still pending for approval");';
@@ -134,8 +132,7 @@ include'database.php';
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © student-utem
-                        
+                        Copyright © Rental House Management System
                     </p>
                 </div>
             </div>

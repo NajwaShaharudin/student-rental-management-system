@@ -99,7 +99,7 @@ if (!isset($_SESSION["admin"])) {
                     <div class="trainer-item">
                     <ul class="social-icons">
                                 <li><a href="view_studentList.php" >
-                                <img src="assets/images/list-student.jpg" alt="list-student" width="50" height="150">
+                                <img src="assets/images/list-student.png" alt="list-student" width="50" height="150">
                                 </a></li>
                             </ul>
                         <div class="down-content">
@@ -116,6 +116,18 @@ if (!isset($_SESSION["admin"])) {
                             </ul>
                         <div class="down-content">
                             <h4>LANDLORD REGISTRATION APPROVAL</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="trainer-item">
+                    <ul class="social-icons">
+                                <li><a href="admin_complainApproval.php" >
+                                <img src="assets/images/house-repair.png" alt="approved-icon" width="50" height="150">
+                                </a></li>
+                            </ul>
+                        <div class="down-content">
+                            <h4>HOUSE COMPLAIN</h4>
                         </div>
                     </div>
                 </div>

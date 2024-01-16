@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+if (isset($_POST["login_student"])) {
+   $username = $_POST["username"];
+   $password = $_POST["password"];
+    require_once "database.php";
+    $sql = "SELECT * FROM student WHERE username = '$username'";
+
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    if ($user) {
+        if (password_verify($password, $user["password"])) {
+            $_SESSION["student"] = [
+                'username' => $user['username'],
+            ];
+            header("Location: student_mainPage.php");
+            exit();
+        }else{
+            $login_error = "Password does not match";
+        }
+    }else{
+        $login_error = "Username does not match";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,27 +109,10 @@
         <div class="container">
 
         <?php
-        if (isset($_POST["login_student"])) {
-           $username = $_POST["username"];
-           $password = $_POST["password"];
-            require_once "database.php";
-            $sql = "SELECT * FROM student WHERE username = '$username'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION["user"] = "yes";
-                    header("Location: student_mainPage.php");
-                    die();
-                }else{
-                    echo "<div class='alert alert-danger'>Password does not match</div>";
-                }
-            }else{
-                echo "<div class='alert alert-danger'>Username does not match</div>";
+            if (isset($login_error)) {
+                echo "<div class='alert alert-danger'>$login_error</div>";
             }
-        }
-        ?>
+            ?>
 
                     <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
                         <form action="student_login.php" method="post">
@@ -125,8 +137,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © student-utem
-                       
+                          Copyright © Rental House Management System
                     </p>
                 </div>
             </div>

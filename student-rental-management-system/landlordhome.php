@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION["email"]) || empty($_SESSION["email"]) || !isset($_SESSION["status"]) || empty($_SESSION["status"]) || $_SESSION["status"] !== "approved") {
+    // Redirect to the login page
+    header("Location: landlord_login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,11 +57,11 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li><a href="landlordhome.php" class="active">Home</a></li>
+                        <li><a href="landlordhome.php">Home</a></li>
                         <li><a href="landlordlistinghouse.php">House Listing</a></li>   
                         <li><a href="landlordhouse.php">Register House</a></li>   
-                            <li><a href="landlordviewstud.php">Review Applicants</a></li>
-                            <li><a href="contact.html">Contact</a></li>          
+                        <li><a href="landlordviewstud.php">Review Applicants</a></li>  
+                        <li><a href="landlord_logout.php">Logout</a></li> 
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -61,22 +72,6 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="assets/images/video.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Discover Comfortable and Affordable Student House</h6>
-                <h2>Find the perfect <em>House</em></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
 
    <!-- ***** Cars Starts ***** -->
    <section class="section" id="trainers">
@@ -155,7 +150,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © student-utem
+                          Copyright © Rental House Management System
                         
                     </p>
                 </div>
