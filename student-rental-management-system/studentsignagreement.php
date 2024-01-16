@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_query($conn, $insert_agreement_query)) {
         echo "<script> 
             alert('Agreement Signed Successfully');
-            document.location.href = 'landlordviewstud.php';
+            document.location.href = 'student_mainPage.php';
             </script>";
         exit();
     } else {

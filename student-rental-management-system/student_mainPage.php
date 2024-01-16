@@ -58,15 +58,17 @@ if (!isset($_SESSION["student"])) {
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                        <li><a href="student_mainPage.php" class="active">Home</a></li> 
-                        <li><a href="studentlisthouse.php">House Listing</a></li>   
-                        <li><a href="landlordhouse.php">Sign Agreement</a></li>   
-                        <li><a href="studentlisthouse.php">Report House</a></li>
+                        <li><a href="student_mainPage.php">Home</a></li>   
+                        <li><a href="studentlisthouse.php" class="active">House Listing</a></li>   
+                        <li><a href="studentapproval.php">Sign Agreement</a></li>   
+                        <li><a href="student_complain.php">Report House</a></li>
                         <li><a href="student_logout.php">Logout</a></li> 
+                                   
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                    </ul>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
                 </div>
             </div>
         </div>
