@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$errors = array();
 ?>
 
 <!DOCTYPE html>
@@ -37,18 +37,20 @@ session_start();
     include 'database.php';
 
     if (isset($_POST['create'])){
+         $fullname = $_POST['fullname'];
+         $matricNo = $_POST['$matricNo'];
          $message = $_POST['message'];
 
          $stmt = $conn -> prepare ("SELECT * FROM complain WHERE message = ?");
-         $stmt -> bind_param("s", $message);
+         $stmt -> bind_param("s", $fullname, $matricNo);
          $stmt ->execute();
          $result = $stmt->get_result();
 
-         if (empty($message)){
+         if (empty($fullname)){
             array_push($errors, "All fields are required");
          } else {
-            $stmt = $conn->prepare("INSERT INTO complain (message, status) VALUES (?, 'pending')");
-            $stmt -> bind_param ("s", $message);
+            $stmt = $conn->prepare("INSERT INTO complain (fullname, matricNo, message, status) VALUES (?,?,?, 'pending')");
+            $stmt -> bind_param ("sss", $fullname, $message);
             $stmt->execute();
             echo "<div class='alert alert-success'>You complain has been received.</div>";
         }
@@ -67,10 +69,18 @@ session_start();
         </header>
         <form action="student_complain.php" id="complain-form" method="post">
         <input type="hidden" name="id" value="">
-		<div class="form-group">
-			<label for="" class="control-label">Description of the Problem</label>
-			<textarea cols="30" rows="3" name="message" required="" class="form-control"></textarea>
-		</div>
+        <div class="form-group">
+			<label for="" class="control-label">Name</label>
+			<textarea cols="30" rows="3" name="fullname" required="" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+			<label for="" class="control-label">Matric No</label>
+			<textarea cols="30" rows="3" name="matricNo" required="" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="" class="control-label">Description of the Problem</label>
+        <textarea cols="30" rows="3" name="message" required="" class="form-control"></textarea>
+      </div>
 		<button type="submit" name="create" class="button btn btn-primary btn-sm">Create</button>
 		<button class="button btn btn-secondary btn-sm" type="reset">Cancel</button>
 

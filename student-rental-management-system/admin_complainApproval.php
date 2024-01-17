@@ -77,6 +77,8 @@
             <tr>
                 <th>#</th>
                 <th style="text-align:center">Date & Time</th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Matric No</th>
                 <th style="text-align:center">Complain Details</th>
             </tr>
         </thead>
@@ -89,6 +91,8 @@
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['dateTime']; ?></td>
+                        <td><?php echo $row['fullname']; ?></td>
+                        <td><?php echo $row['matricNo']; ?></td>
                         <td><?php echo $row['message']; ?></td>
                          <td>
                         <form action="admin_complainApproval.php" method="post">
