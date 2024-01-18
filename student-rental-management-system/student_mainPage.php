@@ -141,7 +141,7 @@ if (!isset($_SESSION["student"])) {
             <br>
 
             <div class="main-button text-center">
-                <a href="properties.html">View Properties</a>
+                <a href="studentlisthouse.php">View Properties</a>
             </div>
         </div>
     </section>
